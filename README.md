@@ -34,7 +34,8 @@ Mainly the system will include two small projects:
 - price_range - This is the target variable with the value of: 0 (low cost), 1 (medium cost), 2 (high cost), 3 (very high cost)
 
 
-### Project Structure:
+### Project Structure: 
+~~~
 device-price-predictor/
 ├── src/
 │   ├── main/
@@ -57,7 +58,7 @@ device-price-predictor/
 ├── notebook/
 │   └── price_classification.ipynb
 └── README.md
-
+~~~
 
 ### Module Description:
 - DeviceContriller.java: This controller handles HTTP requests related to Device operations such as retrieving, adding, and deleting devices.
