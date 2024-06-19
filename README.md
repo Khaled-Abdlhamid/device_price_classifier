@@ -60,22 +60,23 @@ device-price-predictor/
 └── README.md
 ~~~
 
-### Module Description:
-- DeviceContriller.java: This controller handles HTTP requests related to Device operations such as retrieving, adding, and deleting devices.
+### Module Description :
+- DeviceContriller.java: This controller handles HTTP requests related to Device operations such as retrieving, adding, and deleting devices. it services as the API layer.
 - PredictionController.java: This controller handles the prediction endpoint. It sends the device feauters to the Flask server to get the predicted price range and then updates the Device entity.
 - Devices.java: This is the entity class representing the Device in the database. It includes fields for each attribute of the device and provides getter methods to access those fields.
-- DeviceRepository.java:  This interface extends **JpaRepository** and provides CRUD operations for the Device entity. Spring Data JPA will automatically implement this interface at runtime.
-- DeviceService.java: This service class contains business logic related to Device operations. It interacts with the DeviceRepository.
+- DeviceRepository.java:  This interface extends **JpaRepository** and provides CRUD operations for the Device entity. Spring Data JPA will automatically implement this interface at runtime. it services as the data access layer.
+- DeviceService.java: This service class contains business logic related to Device operations. It interacts with the DeviceRepository. it acts as the service layer.
 - app.py: The Flask server to get the specs of the device and return the prediction.
 - model.pkl: The trained ML model.
 - price_classification.ipynb: The notebook in which the ML model was developed.
 
 
-### Deploying and Running: <font color="red">This is the part that i'm still figuring out</font>
-- Deploy the Flask server: cd to_the_flask_server flask run
+### Deploying and Running: 
+- Deploy the Flask server: cd to_the_flask_server app.py run
 - Deploy the Spring Boot Application: cd to_device-price-predictor ./mvnw spring-boot:run
 - Test the Endpoints: in this project i'm using Postman. 
 	- POST http://localhost:8080/api/devices/ Content-Type: application/json
+   		~~~
 		{
 		    "batteryPower": 1500,
 		    "blue": true,
@@ -98,7 +99,9 @@ device-price-predictor/
 		    "touchScreen": true,
 		    "wifi": true
 		}
+		~~~
 - Store the device data on any Database.
+- Then to get the prediction for any device we access the device by id
 
 
 
